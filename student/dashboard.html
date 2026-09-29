@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home · LICEO SAVORE</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body data-role="student" data-nav="dashboard" data-title="Canteen">
+
+<!-- ----------------------------------------------------------- hero -->
+<section class="hero">
+    <div class="hero-copy">
+        <div class="eyebrow" id="today-label">Canteen open</div>
+        <h1>Your break, already sorted.</h1>
+        <p>Skip the queue. Choose your meal, reserve a pickup window, and get back to
+           class with time to spare.</p>
+        <a class="btn" style="margin-top:18px" href="menu.html">Start an order</a>
+    </div>
+    <div class="hero-art">
+        <span class="plate">🍱</span>
+        <div class="hero-tag" id="next-window"><b>—</b>next window</div>
+    </div>
+</section>
+
+<!-- ------------------------------------------------- active order -->
+<section class="panel" id="active-order" style="display:none"></section>
+
+<!-- ------------------------------------------------------- stats -->
+<div class="stats" id="student-stats"></div>
+
+<!-- --------------------------------------------------- quick picks -->
+<div class="section-head">
+    <div>
+        <h2>Picked for you</h2>
+        <p>Available at the counter today</p>
+    </div>
+    <a class="btn btn-ghost btn-sm" href="menu.html">See full menu</a>
+</div>
+
+<div class="menu-grid" id="quick-picks"></div>
+
+<script src="../assets/js/data.js"></script>
+<script src="../assets/js/shell.js"></script>
+<script src="../assets/js/dashboard.js"></script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liceo Savore</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="shell">
+        <aside class="sidebar">
+            <div class="brand"><div class="brand-mark">✦</div><div class="brand-name">LICEO SAVORE<small>Campus canteen</small></div></div>
+            <div class="nav-label">Student space</div>
+            <nav class="nav" aria-label="Main navigation">
+                <button class="active"><span>⌂</span>Home</button>
+                <button><span>▣</span>My orders</button>
+                <button><span>♡</span>Saved meals</button>
+                <button><span>◷</span>Order history</button>
+            </nav>
+            <div class="sidebar-bottom"><strong>Pickup promise</strong>Order before break and collect from the express counter.</div>
+        </aside>
+
+        <main>
+            <header class="topbar"><div class="crumb">Student portal &nbsp;/&nbsp; Canteen</div><div class="top-actions"><button class="icon-btn" aria-label="Notifications">♧</button><div class="profile"><div class="avatar">JM</div><span>Jamie M. &nbsp;⌄</span></div></div></header>
+
+            <section class="hero">
+                <div class="hero-copy"><div class="eyebrow">Tuesday, September 22 · Open today</div><h1>Your break, already sorted.</h1><p>Skip the queue. Choose your meal, reserve a pickup window, and get back to class with time to spare.</p></div>
+                <div class="hero-art"><div class="hero-tag"><b>20 min</b>average pickup time</div></div>
+            </section>
+
+            <div class="content-grid">
+                <section class="menu-area">
+                    <div class="section-head"><div><h2>What are you craving?</h2><p>Freshly prepared at the campus canteen</p></div><input class="search" id="search" type="search" placeholder="Search the menu..." aria-label="Search menu"></div>
+                    <div class="categories" id="categories"><button class="category active" data-category="All">All items</button><button class="category" data-category="Meals">Rice meals</button><button class="category" data-category="Snacks">Quick bites</button><button class="category" data-category="Drinks">Drinks</button></div>
+                    <div class="menu-grid" id="menu-grid"></div>
+                </section>
+
+                <aside class="order-card" aria-label="Your order">
+                    <div class="order-title"><h2>Your order</h2><span class="count" id="count">0</span></div>
+                    <div class="cart-items" id="cart-items"><div class="cart-empty">Your tray is empty.<br>Pick something delicious to start.</div></div>
+                    <label class="field-label">Pickup window</label>
+                    <div class="pickup-options" id="pickup-options"><button class="pickup selected" data-pickup="Morning snack"><b>08:50–09:10</b>Morning</button><button class="pickup" data-pickup="Lunch"><b>11:50–12:10</b>Lunch</button><button class="pickup" data-pickup="Afternoon"><b>14:00–14:20</b>Afternoon</button></div>
+                    <label class="field-label">Payment method</label>
+                    <div class="payment"><label><input type="radio" name="payment" value="Cash on pickup" checked> Cash on pickup</label><label><input type="radio" name="payment" value="GCash / Maya"> GCash / Maya QR</label></div>
+                    <div class="summary"><div><span>Subtotal</span><span id="subtotal">₱0</span></div><div><span>Pickup fee</span><span>₱0</span></div><div class="total"><span>Total</span><span id="total">₱0</span></div></div>
+                    <button class="place-order" id="place-order">Place preorder</button><small class="notice">You can cancel before preparation starts.</small>
+                </aside>
+            </div>
+        </main>
+    </div>
+    <div class="toast" id="toast" role="status"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>

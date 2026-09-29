@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register · LICEO SAVORE</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<div class="auth-page">
+
+    <section class="auth-art">
+        <div class="brand">
+            <div class="brand-mark">✦</div>
+            <div class="brand-name">LICEO SAVORE<small>Campus canteen</small></div>
+        </div>
+
+        <h1>Create your student account.</h1>
+        <p>Registration is open to Senior High School students of Liceo de Cagayan
+           University who buy from the campus canteen.</p>
+
+        <div class="auth-points">
+            <div><b>One account per student number.</b> Your section and strand help the
+                 canteen group orders by break schedule.</div>
+            <div><b>Keep your pickup promise.</b> Three unclaimed orders within 30 days
+                 pauses pre-ordering for 7 days.</div>
+        </div>
+    </section>
+
+    <section class="auth-form-wrap">
+        <div class="auth-form">
+            <h2>Register</h2>
+            <p>Fill in your details exactly as they appear on your school records.</p>
+
+            <div id="register-error" class="alert alert-danger" style="margin:0 0 18px;display:none"></div>
+
+            <form id="register-form" novalidate>
+                <div class="form-grid">
+                    <div class="field">
+                        <label for="first_name">First name</label>
+                        <input type="text" id="first_name" name="first_name" required>
+                    </div>
+
+                    <div class="field">
+                        <label for="last_name">Last name</label>
+                        <input type="text" id="last_name" name="last_name" required>
+                    </div>
+
+                    <div class="field">
+                        <label for="student_number">Student number</label>
+                        <input type="text" id="student_number" name="student_number"
+                               placeholder=". . ." required>
+                    </div>
+
+                    <div class="field">
+                        <label for="strand">Strand</label>
+                        <select id="strand" name="strand" required>
+                            <option value="">Select strand</option>
+                            <option value="STEM">STEM</option>
+                            <option value="HUMSS">HUMSS</option>
+                            <option value="ABM">ABM</option>
+                            <option value="TVL-ICT">TVL-ICT</option>
+                            <option value="TVL-HE">TVL-HE</option>
+                        </select>
+                    </div>
+
+                    <div class="field">
+                        <label for="section">Section</label>
+                        <input type="text" id="section" name="section" placeholder="e.g. ICT 1" required>
+                    </div>
+
+                    <div class="field">
+                        <label for="contact">Mobile number</label>
+                        <input type="text" id="contact" name="contact" placeholder="(63)" required>
+                    </div>
+
+                    <div class="field full">
+                        <label for="email">Email address</label>
+                        <input type="email" id="email" name="email" placeholder="you@example.com (LOLLLLLLLL)" required>
+                    </div>
+
+                    <div class="field full">
+                        <label for="username">Username</label>
+                        <input type="text" id="username" name="username" autocomplete="username" required>
+                    </div>
+
+                    <div class="field">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="password"
+                               autocomplete="new-password" required>
+                        <span class="hint">At least 8 characters.</span>
+                    </div>
+
+                    <div class="field">
+                        <label for="confirm_password">Confirm password</label>
+                        <input type="password" id="confirm_password" name="confirm_password"
+                               autocomplete="new-password" required>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-block" style="margin-top:18px">Create account</button>
+            </form>
+
+            <p class="auth-switch">
+                Already registered? <a href="index.html">Log in instead</a>
+            </p>
+        </div>
+    </section>
+</div>
+
+<script>
+    /* Front-end validation only — nothing is saved to a server. */
+    const form = document.getElementById('register-form');
+    const errorBox = document.getElementById('register-error');
+
+    form.addEventListener('submit', event => {
+        event.preventDefault();
+        const data = Object.fromEntries(new FormData(form));
+        const errors = [];
+
+        if (!data.first_name.trim() || !data.last_name.trim()) errors.push('First and last name are required.');
+        if (!data.student_number.trim()) errors.push('Student number is required.');
+        if (!data.strand) errors.push('Please choose your strand.');
+        if (!data.section.trim()) errors.push('Section is required.');
+        if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(data.email)) errors.push('Please enter a valid email address.');
+        if (data.username.trim().length < 4) errors.push('Username must be at least 4 characters.');
+        if (data.password.length < 8) errors.push('Password must be at least 8 characters.');
+        if (data.password !== data.confirm_password) errors.push('The two passwords do not match.');
+
+        if (errors.length) {
+            errorBox.innerHTML = errors.join('<br>');
+            errorBox.style.display = '';
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            return;
+        }
+
+        errorBox.style.display = 'none';
+        window.location.href = 'student/dashboard.html';
+    });
+</script>
+</body>
+</html>

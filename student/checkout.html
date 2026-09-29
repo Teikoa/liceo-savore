@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout · LICEO SAVORE</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body data-role="student" data-nav="cart" data-title="Checkout">
+
+<div class="section-head" style="margin-top:26px">
+    <div>
+        <h2>Checkout</h2>
+        <p>Choose when you will collect your order and how you want to pay.</p>
+    </div>
+    <a class="btn btn-ghost btn-sm" href="cart.html">Back to tray</a>
+</div>
+
+<form id="checkout-form">
+    <div class="content-grid">
+        <div>
+
+            <!-- -------------------------------------- 1. pickup -->
+            <section class="panel">
+                <h3>1. Pickup schedule</h3>
+                <p class="panel-sub">
+                    Ordering for a session closes 20 minutes before it starts.
+                </p>
+
+                <label class="field-label" style="margin-top:0">Pickup day</label>
+                <div class="payment" id="pickup-days"
+                     style="grid-template-columns:repeat(2,1fr);display:grid"></div>
+
+                <label class="field-label">Pickup window</label>
+                <div class="pickup-options cols" id="pickup-options"></div>
+            </section>
+
+            <!-- ------------------------------------- 2. payment -->
+            <section class="panel">
+                <h3>2. Payment method</h3>
+                <p class="panel-sub">Hybrid payment: settle at the counter, or send it in advance.</p>
+
+                <div class="payment">
+                    <label>
+                        <input type="radio" name="payment_method" value="Cash on Pickup" checked>
+                        <span>Cash on Pickup
+                            <small>Pay the cashier when you collect your order.</small>
+                        </span>
+                    </label>
+                    <label>
+                        <input type="radio" name="payment_method" value="GCash">
+                        <span>GCash
+                            <small>Send to the canteen's GCash QR, then upload your receipt.</small>
+                        </span>
+                    </label>
+                    <label>
+                        <input type="radio" name="payment_method" value="Maya">
+                        <span>Maya
+                            <small>Send to the canteen's Maya QR, then upload your receipt.</small>
+                        </span>
+                    </label>
+                </div>
+
+                <!-- Revealed only when an online method is selected -->
+                <div id="online-payment-panel" style="display:none;margin-top:20px">
+
+                    <div class="qr-box" data-wallet="GCash" style="display:none">
+                        <div class="qr-fake" role="img" aria-label="GCash QR code"></div>
+                        <b>LDCU Canteen Services</b><br>
+                        <span style="color:var(--muted);font-size:12px">0917 555 0134</span>
+                    </div>
+
+                    <div class="qr-box" data-wallet="Maya" style="display:none">
+                        <div class="qr-fake" role="img" aria-label="Maya QR code"></div>
+                        <b>LDCU Canteen Services</b><br>
+                        <span style="color:var(--muted);font-size:12px">0918 555 0134</span>
+                    </div>
+
+                    <div class="alert alert-info" style="margin:16px 0">
+                        <small>Send exactly <b id="qr-amount">₱0.00</b>, then enter the reference number
+                        and upload a screenshot. A staff member checks every receipt before your
+                        food is prepared.</small>
+                        
+                    </div>
+
+                    <div class="form-grid">
+                        <div class="field">
+                            <label for="reference_number">Reference number</label>
+                            <input type="text" id="reference_number" name="reference_number"
+                                   placeholder="e.g. 0123 456 789012">
+                        </div>
+
+                        <div class="field">
+                            <label for="receipt">Receipt screenshot</label>
+                            <input type="file" id="receipt" name="receipt"
+                                   accept="image/png,image/jpeg,image/webp">
+                            <span class="hint">JPG, PNG, or WebP up to 2 MB.</span>
+                        </div>
+
+                        <div class="full" id="receipt-preview"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- --------------------------------------- 3. notes -->
+            <section class="panel">
+                <h3>3. Notes for the canteen</h3>
+                <p class="panel-sub">Optional — allergies, less rice, extra sauce, and so on.</p>
+                <div class="field">
+                    <label for="notes">Notes</label>
+                    <textarea id="notes" name="notes" rows="3" maxlength="255"
+                              placeholder="Anything the canteen should know?"></textarea>
+                </div>
+            </section>
+        </div>
+
+        <!-- ------------------------------------------ order recap -->
+        <aside class="order-card">
+            <div class="order-title">
+                <h2>Your order</h2>
+                <span class="count" id="recap-count">0</span>
+            </div>
+
+            <div class="cart-items" id="recap-items"></div>
+
+            <div class="summary">
+                <div><span>Subtotal</span><span id="recap-subtotal">₱0.00</span></div>
+                <div><span>Pickup fee</span><span>₱0.00</span></div>
+                <div class="total"><span>Total</span><span id="recap-total">₱0.00</span></div>
+            </div>
+
+            <button type="submit" class="btn btn-block" style="margin-top:18px" id="place-order">
+                Place pre-order
+            </button>
+
+            <small class="notice">
+                You can cancel free of charge until the canteen starts preparing your food.
+                Unclaimed orders are recorded as no-shows.
+            </small>
+        </aside>
+    </div>
+</form>
+
+<script src="../assets/js/data.js"></script>
+<script src="../assets/js/shell.js"></script>
+<script src="../assets/js/checkout.js"></script>
+</body>
+</html>

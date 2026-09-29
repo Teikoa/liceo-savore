@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My tray · LICEO SAVORE</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body data-role="student" data-nav="cart" data-title="My tray">
+
+<div class="section-head" style="margin-top:26px">
+    <div>
+        <h2>My tray</h2>
+        <p id="tray-count">—</p>
+    </div>
+    <button class="btn btn-ghost btn-sm" id="clear-tray"
+            data-confirm="Remove everything from your tray?">Clear tray</button>
+</div>
+
+<!-- Filled by cart.js: either the empty state or the table + summary -->
+<div id="tray-body"></div>
+
+<script src="../assets/js/data.js"></script>
+<script src="../assets/js/shell.js"></script>
+<script src="../assets/js/cart.js"></script>
+</body>
+</html>

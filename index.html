@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log in · LICEO SAVORE</title>
+    <meta name="description" content="LICEO SAVORE — Web-Based School Canteen Pre-Ordering and Pickup System with Hybrid Payment and No-Show Management.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<div class="auth-page">
+
+    <!-- ------------------------------------------------ left panel -->
+    <section class="auth-art">
+        <div class="brand">
+            <img class="brand-logo" src="assets/img/liceo-logo.png" alt="Liceo de Cagayan University Logo">
+            <div class="brand-name">LICEO SAVORE<small>Campus canteen</small></div>
+        </div>
+
+        <h1>Your break, already sorted.</h1>
+        <p>Pre-order before your break, reserve a pickup window, and skip the queue
+           at the Liceo de Cagayan University canteen.</p>
+
+        <div class="auth-points">
+            <div><b>Hybrid payment.</b> Pay cash at pickup, or send it through the
+                 canteen's GCash or Maya QR and upload your receipt.</div>
+            <div><b>Three pickup windows.</b> Morning snack, lunch, and afternoon snack.</div>
+            <div><b>No-show management.</b> Unclaimed orders are recorded so the canteen
+                 can prepare the right amount of food.</div>
+        </div>
+    </section>
+
+    <!-- ----------------------------------------------- login form -->
+    <section class="auth-form-wrap">
+        <div class="auth-form">
+            <h2>Log in</h2>
+            <p>Use the account issued by the canteen office, or the one you registered
+               with your student number.</p>
+
+            <form id="login-form" novalidate>
+                <div class="field">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="username"
+                           value="student" autocomplete="username" required autofocus>
+                </div>
+
+                <div class="field">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password"
+                           value="student123" autocomplete="current-password" required>
+                </div>
+
+                <label class="field-label">Log in as</label>
+                <div class="ball-options">
+                    <label>
+                        <input type="radio" name="role" value="student" checked>
+                        <span>Grade 12 student
+                            <small>Browse the menu, pre-order, and track pickup.</small>
+                        </span>
+                    </label>
+                    <label>
+                        <input type="radio" name="role" value="staff">
+                        <span>Canteen personnel
+                            <small>Manage orders, verify payments, and record no-shows.</small>
+                        </span>
+                    </label>
+                </div>
+
+                <button type="submit" class="btn btn-block" style="margin-top:18px">Log in</button>
+            </form>
+
+            <p class="auth-switch">
+                New student? <a href="register.html">Create an account</a>
+            </p>
+
+            <div class="demo-box">
+                <b>Prototype notice.</b> This is the front-end of the system. The login
+                is not connected to a database — choose a role above and press
+                <b>Log in</b> to open that side of the system.
+            </div>
+        </div>
+    </section>
+</div>
+
+<script src="assets/js/data.js"></script>
+<script>
+    /* The prototype has no authentication. Picking a role simply opens
+       the matching dashboard. */
+    document.getElementById('login-form').addEventListener('submit', event => {
+        event.preventDefault();
+        const role = document.querySelector('input[name="role"]:checked').value;
+        window.location.href = role === 'staff'
+            ? 'admin/dashboard.html'
+            : 'student/dashboard.html';
+    });
+</script>
+</body>
+</html>
