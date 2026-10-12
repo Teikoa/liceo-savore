@@ -36,9 +36,7 @@
             <h2>Register</h2>
             <p>Fill in your details exactly as they appear on your school records.</p>
 
-            <div id="register-error" class="alert alert-danger" style="margin:0 0 18px;display:none"></div>
-
-            <form id="register-form" novalidate>
+            <form id="register-form" method="post">
                 <div class="form-grid">
                     <div class="field">
                         <label for="first_name">First name</label>
@@ -80,7 +78,7 @@
 
                     <div class="field full">
                         <label for="email">Email address</label>
-                        <input type="email" id="email" name="email" placeholder="you@example.com (LOLLLLLLLL)" required>
+                        <input type="email" id="email" name="email" placeholder="you@example.com" required>
                     </div>
 
                     <div class="field full">
@@ -106,41 +104,11 @@
             </form>
 
             <p class="auth-switch">
-                Already registered? <a href="index.html">Log in instead</a>
+                Already registered? <a href="login.html">Log in instead</a>
             </p>
         </div>
     </section>
 </div>
 
-<script>
-    /* Front-end validation only — nothing is saved to a server. */
-    const form = document.getElementById('register-form');
-    const errorBox = document.getElementById('register-error');
-
-    form.addEventListener('submit', event => {
-        event.preventDefault();
-        const data = Object.fromEntries(new FormData(form));
-        const errors = [];
-
-        if (!data.first_name.trim() || !data.last_name.trim()) errors.push('First and last name are required.');
-        if (!data.student_number.trim()) errors.push('Student number is required.');
-        if (!data.strand) errors.push('Please choose your strand.');
-        if (!data.section.trim()) errors.push('Section is required.');
-        if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(data.email)) errors.push('Please enter a valid email address.');
-        if (data.username.trim().length < 4) errors.push('Username must be at least 4 characters.');
-        if (data.password.length < 8) errors.push('Password must be at least 8 characters.');
-        if (data.password !== data.confirm_password) errors.push('The two passwords do not match.');
-
-        if (errors.length) {
-            errorBox.innerHTML = errors.join('<br>');
-            errorBox.style.display = '';
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-            return;
-        }
-
-        errorBox.style.display = 'none';
-        window.location.href = 'student/dashboard.html';
-    });
-</script>
 </body>
 </html>

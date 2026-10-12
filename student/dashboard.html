@@ -14,7 +14,7 @@
 <!-- ----------------------------------------------------------- hero -->
 <section class="hero">
     <div class="hero-copy">
-        <div class="eyebrow" id="today-label">Canteen open</div>
+        <div class="eyebrow">Campus canteen</div>
         <h1>Your break, already sorted.</h1>
         <p>Skip the queue. Choose your meal, reserve a pickup window, and get back to
            class with time to spare.</p>
@@ -22,29 +22,35 @@
     </div>
     <div class="hero-art">
         <span class="plate">🍱</span>
-        <div class="hero-tag" id="next-window"><b>—</b>next window</div>
+        <div class="hero-tag">Pickup windows are selected at checkout.</div>
     </div>
 </section>
 
 <!-- ------------------------------------------------- active order -->
-<section class="panel" id="active-order" style="display:none"></section>
+<section class="panel">
+    <h2>Order status</h2>
+    <p class="panel-sub">Your current orders will appear here when connected to the canteen service.</p>
+</section>
 
 <!-- ------------------------------------------------------- stats -->
-<div class="stats" id="student-stats"></div>
+<section class="panel">
+    <h2>Account summary</h2>
+    <p class="panel-sub">Your order and no-show summary will appear here when connected to the canteen service.</p>
+</section>
 
 <!-- --------------------------------------------------- quick picks -->
 <div class="section-head">
     <div>
-        <h2>Picked for you</h2>
-        <p>Available at the counter today</p>
+        <h2>Canteen menu</h2>
+        <p>Menu items will appear here when connected to the canteen service.</p>
     </div>
-    <a class="btn btn-ghost btn-sm" href="menu.html">See full menu</a>
+    <a class="btn btn-ghost btn-sm" href="menu.html">View menu</a>
 </div>
 
-<div class="menu-grid" id="quick-picks"></div>
+<div class="panel">
+    <p class="panel-sub">No menu items are available until the backend is connected.</p>
+</div>
 
-<script src="../assets/js/data.js"></script>
 <script src="../assets/js/shell.js"></script>
-<script src="../assets/js/dashboard.js"></script>
 </body>
 </html>

@@ -76,11 +76,6 @@ h1, h2, h3, h4, p { margin: 0; }
 .auth-form .auth-switch { color: var(--muted); font-size: 12px; text-align: center; margin-top: 20px; }
 .auth-switch a { color: var(--maroon); font-weight: 700; }
 .auth-switch a:hover { color: var(--maroon-dark); text-decoration: underline; }
-.demo-box {
-    background: var(--gold-pale); border: 1px solid #eadbb3; border-radius: 9px;
-    color: #66552b; font-size: 11px; line-height: 1.6; margin-top: 22px; padding: 12px 14px;
-}
-.demo-box b { color: var(--maroon-dark); }
 .alert-danger {
     background: #fbe9e4; border: 1px solid #e9c2b7; border-radius: 8px;
     color: #8c3425; font-size: 12px; line-height: 1.5; padding: 11px 13px;
@@ -135,42 +130,10 @@ h1, h2, h3, h4, p { margin: 0; }
 }
 .nav a.active, .nav a:hover { color: #fff; background: rgba(255, 255, 255, .12); }
 .nav a span { display: inline-block; width: 26px; color: var(--gold); font-size: 15px; }
-.nav-badge {
-    margin-left: auto; background: var(--gold); color: var(--maroon-dark);
-    border-radius: 20px; padding: 1px 7px; font-size: 10px; font-weight: 700;
-}
-
-.sidebar-bottom {
-    margin-top: auto; background: #7a1f2b; border: 1px solid #a94a55;
-    border-radius: 12px; padding: 14px; font-size: 12px; line-height: 1.5; color: #f0d7d7;
-}
-.sidebar-bottom strong { color: #fff; display: block; margin-bottom: 4px; }
-
 main { min-width: 0; padding: 22px 38px 40px; display: flex; flex-direction: column; }
 
 .topbar { display: flex; align-items: center; justify-content: space-between; gap: 20px; min-height: 48px; }
 .crumb { color: var(--muted); font-size: 12px; font-weight: 600; }
-.top-actions { display: flex; align-items: center; gap: 12px; }
-.icon-btn {
-    position: relative; background: var(--paper); border: 1px solid var(--line);
-    width: 38px; height: 38px; border-radius: 50%;
-    display: grid; place-items: center; color: var(--ink);
-}
-.icon-btn .dot {
-    position: absolute; top: 6px; right: 7px;
-    width: 8px; height: 8px; border-radius: 50%;
-    background: var(--gold); border: 2px solid var(--paper);
-}
-.profile { display: flex; align-items: center; gap: 9px; font-size: 12px; font-weight: 700; }
-.avatar {
-    background: #efb27e; width: 33px; height: 33px; border-radius: 50%;
-    display: grid; place-items: center; color: #6d3f20; font-size: 12px;
-}
-.logout-btn {
-    border: 1px solid var(--line); background: var(--paper);
-    border-radius: 8px; padding: 8px 13px; font-size: 12px; font-weight: 700; color: var(--muted);
-}
-.logout-btn:hover { color: var(--red); border-color: #e3bfb4; }
 
 .page-footer {
     margin-top: auto; padding-top: 34px;
@@ -389,32 +352,10 @@ table.data .num { text-align: right; font-family: "Space Grotesk", sans-serif; f
 
 /* ---------------------------------------------------------------- misc */
 
-.receipt-thumb {
-    max-width: 100%; border-radius: 10px; border: 1px solid var(--line); display: block;
-}
-.qr-box {
-    background: var(--paper); border: 1px solid var(--line); border-radius: var(--radius);
-    padding: 20px; text-align: center;
-}
-.qr-fake {
-    width: 160px; height: 160px; margin: 0 auto 14px;
-    background:
-        repeating-linear-gradient(0deg, var(--ink) 0 8px, transparent 8px 16px),
-        repeating-linear-gradient(90deg, var(--ink) 0 8px, transparent 8px 16px);
-    border: 7px solid var(--ink); border-radius: 6px; opacity: .85;
-}
 .kv { display: grid; gap: 10px; font-size: 13px; }
 .kv > div { display: flex; justify-content: space-between; gap: 16px; }
 .kv .k { color: var(--muted); }
 .kv .v { font-weight: 600; text-align: right; }
-
-.toast {
-    position: fixed; left: 50%; bottom: 28px; transform: translate(-50%, 90px);
-    background: var(--maroon-dark); color: #fff; padding: 13px 22px; border-radius: 10px;
-    font-size: 13px; font-weight: 600; box-shadow: var(--shadow);
-    opacity: 0; transition: transform .25s ease, opacity .25s ease; z-index: 90; pointer-events: none;
-}
-.toast.show { transform: translate(-50%, 0); opacity: 1; }
 
 .timeline { display: grid; gap: 0; }
 .timeline .step { display: grid; grid-template-columns: 26px 1fr; gap: 12px; }
@@ -446,7 +387,7 @@ table.data .num { text-align: right; font-family: "Space Grotesk", sans-serif; f
     .sidebar { position: static; height: auto; padding: 18px; }
     .brand { padding-bottom: 18px; }
     .nav { grid-auto-flow: column; overflow-x: auto; grid-auto-columns: max-content; }
-    .nav-label, .sidebar-bottom { display: none; }
+    .nav-label { display: none; }
     main { padding: 18px 16px 30px; }
     .auth-page { grid-template-columns: 1fr; }
     .auth-art { padding: 30px 22px; }

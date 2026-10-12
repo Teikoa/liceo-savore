@@ -19,8 +19,6 @@
     <a class="btn btn-sm" href="menu.html">New order</a>
 </div>
 
-<div class="categories" id="order-tabs"></div>
-
 <section class="panel">
     <div class="table-wrap">
         <table class="data">
@@ -34,7 +32,9 @@
                     <th></th>
                 </tr>
             </thead>
-            <tbody id="orders-body"></tbody>
+            <tbody>
+                <tr><td colspan="6" class="empty-row">Order history will appear here when connected to the canteen service.</td></tr>
+            </tbody>
         </table>
     </div>
 </section>
@@ -57,13 +57,13 @@
                     <th class="num">Value</th>
                 </tr>
             </thead>
-            <tbody id="noshow-body"></tbody>
+            <tbody>
+                <tr><td colspan="4" class="empty-row">No-show records will appear here when connected to the canteen service.</td></tr>
+            </tbody>
         </table>
     </div>
 </section>
 
-<script src="../assets/js/data.js"></script>
 <script src="../assets/js/shell.js"></script>
-<script src="../assets/js/orders.js"></script>
 </body>
 </html>
