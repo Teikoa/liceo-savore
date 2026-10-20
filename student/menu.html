@@ -1,27 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Menu · LICEO SAVORE</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="../assets/css/style.css">
 </head>
+
 <body data-role="student" data-nav="menu" data-title="Canteen menu">
 
-<div class="section-head" style="margin-top:26px">
-    <div>
-        <h2>What are you craving?</h2>
-        <p>Freshly prepared at the Liceo de Cagayan University canteen</p>
+    <div class="section-head" style="margin-top:26px">
+        <div>
+            <h2>What are you craving?</h2>
+            <p>Freshly prepared at the Liceo de Cagayan University canteen</p>
+        </div>
     </div>
-</div>
 
-<section class="panel">
+    <div class="menu-grid" id="menu-grid">
+        <p class="panel-sub">Loading menu…</p>
+    </div>
+
+    <!-- <section class="panel">
     <p class="panel-sub">Menu items will appear here when connected to the canteen service.</p>
-</section>
+</section> -->
 
-<script src="../assets/js/shell.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.117.2/dist/umd/supabase.js"></script>
+    <script src="../assets/js/supabase.js"></script>
+    <script src="../assets/js/shell.js"></script>
+    <script src="../assets/js/cart.js"></script>
+    <script src="../assets/js/menu.js"></script>
+
+
 </body>
+
 </html>

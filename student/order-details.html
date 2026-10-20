@@ -1,22 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Order details · LICEO SAVORE</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="../assets/css/style.css">
 </head>
+
 <body data-role="student" data-nav="orders" data-title="Order details">
 
-<section class="panel" style="margin-top:26px">
-    <h2>Order details</h2>
-    <p class="panel-sub">Order details will appear here when connected to the canteen service.</p>
-    <a class="btn btn-ghost btn-sm" href="orders.html">Back to my orders</a>
-</section>
+    <div id="order-details">
+        <p class="panel-sub" style="margin-top:26px">Loading order…</p>
+    </div>
 
-<script src="../assets/js/shell.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.117.2/dist/umd/supabase.js"></script>
+    <script src="../assets/js/supabase.js"></script>
+    <script src="../assets/js/shell.js"></script>
+    <script src="../assets/js/cart.js"></script>
+    <script src="../assets/js/orders.js"></script>
+
+
 </body>
+
 </html>

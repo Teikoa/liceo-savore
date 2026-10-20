@@ -20,6 +20,9 @@
     --radius: 14px;
 }
 
+[hidden] { display: none !important; }
+
+
 * { box-sizing: border-box; }
 
 body {
@@ -131,6 +134,11 @@ h1, h2, h3, h4, p { margin: 0; }
 .nav a.active, .nav a:hover { color: #fff; background: rgba(255, 255, 255, .12); }
 .nav a span { display: inline-block; width: 26px; color: var(--gold); font-size: 15px; }
 main { min-width: 0; padding: 22px 38px 40px; display: flex; flex-direction: column; }
+.nav a .count {
+    width: auto; margin-left: auto; text-align: center;
+    background: var(--gold); color: var(--maroon-dark); font-size: 11px;
+}
+
 
 .topbar { display: flex; align-items: center; justify-content: space-between; gap: 20px; min-height: 48px; }
 .crumb { color: var(--muted); font-size: 12px; font-weight: 600; }
@@ -399,3 +407,38 @@ table.data .num { text-align: right; font-family: "Space Grotesk", sans-serif; f
     .form-grid { grid-template-columns: 1fr; }
     .topbar { flex-wrap: wrap; }
 }
+
+/* ---------------------------------------------------------------- toast */
+
+.toast {
+    position: fixed; right: 24px; bottom: 24px; z-index: 50;
+    display: flex; align-items: center; gap: 14px;
+    max-width: min(360px, calc(100vw - 32px));
+    background: var(--paper); border: 1px solid var(--line);
+    border-left: 4px solid var(--maroon); border-radius: var(--radius);
+    box-shadow: var(--shadow); padding: 14px 16px; font-size: 13px;
+    opacity: 0; transform: translateY(12px); pointer-events: none;
+    transition: opacity .2s ease, transform .2s ease;
+}
+.toast.show { opacity: 1; transform: none; pointer-events: auto; }
+.toast a { color: var(--maroon); font-weight: 700; white-space: nowrap; }
+
+
+/* -------------------------------------------- checkout choices + QR */
+
+.choices { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 8px; }
+.choices label {
+    display: flex; align-items: flex-start; gap: 9px; font-size: 12.5px; font-weight: 600;
+    border: 1px solid var(--line); border-radius: 9px; padding: 11px 12px; cursor: pointer;
+}
+.choices label:has(input:checked) { border-color: var(--maroon); background: var(--gold-pale); }
+.choices label:has(input:disabled) { opacity: .5; cursor: not-allowed; }
+.choices label:has(input:disabled) b { text-decoration: line-through; }
+.choices small { display: block; color: var(--muted); font-weight: 500; font-size: 11px; margin-top: 2px; }
+
+.qr-box {
+    display: flex; flex-wrap: wrap; align-items: center; gap: 18px; margin-top: 16px;
+    padding: 16px; border: 1px dashed var(--line); border-radius: 12px; background: var(--cream);
+}
+.qr-box svg { flex: 0 0 auto; border-radius: 8px; }
+.qr-box ol { margin: 6px 0 10px; padding-left: 18px; color: var(--muted); font-size: 12px; line-height: 1.7; }

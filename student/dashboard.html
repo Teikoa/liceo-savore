@@ -1,56 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home · LICEO SAVORE</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="../assets/css/style.css">
 </head>
+
 <body data-role="student" data-nav="dashboard" data-title="Canteen">
 
-<!-- ----------------------------------------------------------- hero -->
-<section class="hero">
-    <div class="hero-copy">
-        <div class="eyebrow">Campus canteen</div>
-        <h1>Your break, already sorted.</h1>
-        <p>Skip the queue. Choose your meal, reserve a pickup window, and get back to
-           class with time to spare.</p>
-        <a class="btn" style="margin-top:18px" href="menu.html">Start an order</a>
+    <!-- ----------------------------------------------------------- hero -->
+    <section class="hero">
+        <div class="hero-copy">
+            <div class="eyebrow">Campus canteen</div>
+            <h1>Your break, already sorted.</h1>
+            <p>Skip the queue. Choose your meal, reserve a pickup window, and get back to
+                class with time to spare.</p>
+            <a class="btn" style="margin-top:18px" href="menu.html">Start an order</a>
+        </div>
+        <div class="hero-art">
+            <span class="plate">🍱</span>
+            <div class="hero-tag">Pickup windows are selected at checkout.</div>
+        </div>
+    </section>
+
+    <!-- ------------------------------------------------- active order -->
+    <section class="panel">
+        <h2>Order status</h2>
+        <div id="active-orders">
+            <p class="panel-sub">Loading…</p>
+        </div>
+    </section>
+
+
+    <!-- ------------------------------------------------------- stats -->
+    <section class="panel">
+        <h2>Account summary</h2>
+        <p class="panel-sub">Your order and no-show summary will appear here when connected to the canteen service.</p>
+    </section>
+
+    <!-- --------------------------------------------------- quick picks -->
+    <div class="section-head">
+        <div>
+            <h2>Canteen menu</h2>
+            <p>A few things available right now</p>
+        </div>
+        <a class="btn btn-ghost btn-sm" href="menu.html">View menu</a>
     </div>
-    <div class="hero-art">
-        <span class="plate">🍱</span>
-        <div class="hero-tag">Pickup windows are selected at checkout.</div>
+
+    <div class="menu-grid" id="quick-picks">
+        <p class="panel-sub">Loading menu…</p>
     </div>
-</section>
 
-<!-- ------------------------------------------------- active order -->
-<section class="panel">
-    <h2>Order status</h2>
-    <p class="panel-sub">Your current orders will appear here when connected to the canteen service.</p>
-</section>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.117.2/dist/umd/supabase.js"></script>
+    <script src="../assets/js/supabase.js"></script>
+    <script src="../assets/js/shell.js"></script>
+    <script src="../assets/js/cart.js"></script>
+    <script src="../assets/js/orders.js"></script>
+    <script src="../assets/js/menu.js"></script>
 
-<!-- ------------------------------------------------------- stats -->
-<section class="panel">
-    <h2>Account summary</h2>
-    <p class="panel-sub">Your order and no-show summary will appear here when connected to the canteen service.</p>
-</section>
 
-<!-- --------------------------------------------------- quick picks -->
-<div class="section-head">
-    <div>
-        <h2>Canteen menu</h2>
-        <p>Menu items will appear here when connected to the canteen service.</p>
-    </div>
-    <a class="btn btn-ghost btn-sm" href="menu.html">View menu</a>
-</div>
-
-<div class="panel">
-    <p class="panel-sub">No menu items are available until the backend is connected.</p>
-</div>
-
-<script src="../assets/js/shell.js"></script>
 </body>
+
 </html>

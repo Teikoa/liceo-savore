@@ -1,7 +1,7 @@
 const STUDENT_NAV = [
     { key: 'dashboard', icon: '⌂', label: 'Home', href: 'dashboard.html' },
     { key: 'menu', icon: '▤', label: 'Menu', href: 'menu.html' },
-    { key: 'cart', icon: '▣', label: 'My tray', href: 'cart.html' },
+    { key: 'cart', icon: '▣', label: 'Cart', href: 'cart.html' },
     { key: 'orders', icon: '◷', label: 'My orders', href: 'orders.html' }
 ];
 
@@ -23,7 +23,9 @@ function buildShell() {
     const navHtml = STUDENT_NAV.map(item => `
         <a class="${activeNav === item.key ? 'active' : ''}" href="${item.href}">
             <span>${item.icon}</span>${item.label}
+            ${item.key === 'cart' ? '<span class="count" id="cart-count" hidden></span>' : ''}
         </a>`).join('');
+
     const pageContent = body.innerHTML;
 
     body.innerHTML = `
@@ -50,3 +52,21 @@ function buildShell() {
 }
 
 document.addEventListener('DOMContentLoaded', buildShell);
+
+// Small pop-up card in the bottom-right corner. Escape any database
+// text with escapeHtml() before passing it in.
+function showToast(html) {
+    let toast = document.getElementById('toast');
+    if (!toast) {
+        toast = document.createElement('div');
+        toast.id = 'toast';
+        toast.className = 'toast';
+        toast.setAttribute('role', 'status');
+        document.body.appendChild(toast);
+    }
+
+    toast.innerHTML = html;
+    toast.classList.add('show');
+    clearTimeout(toast.hideTimer);
+    toast.hideTimer = setTimeout(() => toast.classList.remove('show'), 2500);
+}

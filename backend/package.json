@@ -1,0 +1,12 @@
+{
+  "name": "liceo-savore-backend",
+  "version": "0.1.0",
+  "description": "Prototype backend for the Liceo Savore canteen pre-ordering system",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=22.5.0"
+  }
+}
